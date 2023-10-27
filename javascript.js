@@ -37,3 +37,10 @@ function colorSquare(e) {
         e.target.style.backgroundColor = "black";
     }
 }
+
+function clearSquares() {
+    document.querySelectorAll(".square").forEach( (node) => node.style.backgroundColor = "white");
+}
+
+createGrid(50);
+document.querySelector(".clear-button").addEventListener("click", clearSquares);

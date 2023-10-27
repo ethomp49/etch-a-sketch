@@ -23,5 +23,9 @@
 
 .square {
     flex: 1;
-    border: 1px solid black;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
 }
