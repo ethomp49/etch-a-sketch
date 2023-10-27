@@ -12,6 +12,7 @@ function createGrid(size) {
         }
         grid.appendChild(row);
     }
+    grid.oncontextmenu = () => {return false;};
     gridContainer.appendChild(grid);
     document.addEventListener("mousedown", startColor);
     document.addEventListener("mouseup", endColor);
@@ -58,4 +59,6 @@ createGrid(50);
 document.querySelector(".clear-button").addEventListener("click", clearSquares);
 document.querySelector(".slider").addEventListener("input", sliderInput);
 document.querySelector(".slider").addEventListener("change", sliderChange);
+
+//Prevent some undesirable default behaviors
 document.ondragstart = (e) => e.preventDefault();
