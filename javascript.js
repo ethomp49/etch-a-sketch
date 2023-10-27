@@ -2,15 +2,12 @@ function createGrid(size) {
     const gridContainer = document.querySelector(".grid-container");
     const grid = document.createElement("div");
     grid.className = "grid";
-    grid.draggable = false;
     for (let i = 1; i <= size; i++) {
         let row = document.createElement("div");
         row.className = "row";
-        row.draggable = false;
         for (let j = 1; j <= size; j++) {
             let pixel = document.createElement("div");
             pixel.className = "square";
-            pixel.draggable = false;
             row.appendChild(pixel);
         }
         grid.appendChild(row);
@@ -61,3 +58,4 @@ createGrid(50);
 document.querySelector(".clear-button").addEventListener("click", clearSquares);
 document.querySelector(".slider").addEventListener("input", sliderInput);
 document.querySelector(".slider").addEventListener("change", sliderChange);
+document.ondragstart = (e) => e.preventDefault();
