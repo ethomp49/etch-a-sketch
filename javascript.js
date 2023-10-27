@@ -13,7 +13,8 @@ function createGrid(size) {
         grid.appendChild(ithDiv);
     }
     gridContainer.appendChild(grid);
-    grid.addEventListener("mousedown", squareMouseDown;
+    document.addEventListener("mousedown", startColor);
+    document.addEventListener("mouseup", endColor);
 }
 
 function removeGrid() {
@@ -22,6 +23,17 @@ function removeGrid() {
     gridContainer.removeChild(grid);
 }
 
-function squareMouseDown(e) {
-    console.log(e.target)
+function startColor(e) {
+    colorSquare(e);
+    document.querySelector(".grid").addEventListener("mouseover", colorSquare);
+}
+
+function endColor() {
+    document.querySelector(".grid").removeEventListener("mouseover", colorSquare);
+}
+
+function colorSquare(e) {
+    if (e.target.className === "square") {
+        e.target.style.backgroundColor = "black";
+    }
 }
