@@ -60,5 +60,5 @@ document.querySelector(".clear-button").addEventListener("click", clearSquares);
 document.querySelector(".slider").addEventListener("input", sliderInput);
 document.querySelector(".slider").addEventListener("change", sliderChange);
 
-//Prevent some undesirable default behaviors
+//Prevents undesirable dragging behavior
 document.ondragstart = (e) => e.preventDefault();
