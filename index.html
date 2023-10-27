@@ -7,8 +7,10 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div class="grid-container"></div>
-    <div class="button-container">
+    <div class="grid-container" draggable="false"></div>
+    <div class="button-container" draggable="false">
+        <label class="slider-label" for="slider">50 x 50</label>
+        <input type="range" min="1" max="100" value="50" class="slider" name="slider" id="slider">
         <button class="clear-button">Clear</button>
     </div>
     <script src="./javascript.js"></script>

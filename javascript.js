@@ -2,15 +2,18 @@ function createGrid(size) {
     const gridContainer = document.querySelector(".grid-container");
     const grid = document.createElement("div");
     grid.className = "grid";
+    grid.draggable = false;
     for (let i = 1; i <= size; i++) {
-        let ithDiv = document.createElement("div");
-        ithDiv.className = "row";
+        let row = document.createElement("div");
+        row.className = "row";
+        row.draggable = false;
         for (let j = 1; j <= size; j++) {
             let pixel = document.createElement("div");
-            pixel.className = "square"
-            ithDiv.appendChild(pixel);
+            pixel.className = "square";
+            pixel.draggable = false;
+            row.appendChild(pixel);
         }
-        grid.appendChild(ithDiv);
+        grid.appendChild(row);
     }
     gridContainer.appendChild(grid);
     document.addEventListener("mousedown", startColor);
@@ -42,5 +45,19 @@ function clearSquares() {
     document.querySelectorAll(".square").forEach( (node) => node.style.backgroundColor = "white");
 }
 
+function sliderInput(e) {
+    const label = e.target.labels[0];
+    const value = e.target.value;
+    label.textContent = `${value} x ${value}`;
+}
+
+function sliderChange(e) {
+    const value = e.target.value;
+    removeGrid();
+    createGrid(value);
+}
+
 createGrid(50);
 document.querySelector(".clear-button").addEventListener("click", clearSquares);
+document.querySelector(".slider").addEventListener("input", sliderInput);
+document.querySelector(".slider").addEventListener("change", sliderChange);
