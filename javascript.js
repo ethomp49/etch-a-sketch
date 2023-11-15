@@ -34,8 +34,9 @@ function endColor() {
 }
 
 function colorSquare(e) {
+    const color = getColor();
     if (e.target.className === "square") {
-        e.target.style.backgroundColor = "black";
+        e.target.style.backgroundColor = color;
     }
 }
 
@@ -53,6 +54,10 @@ function sliderChange(e) {
     const value = e.target.value;
     removeGrid();
     createGrid(value);
+}
+
+function getColor() {
+    return document.querySelector("#color").value;
 }
 
 createGrid(50);
